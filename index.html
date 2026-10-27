@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Study Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<div
+    class="background-message"
+    id="backgroundMessage"
+>
+    Your future self is watching 👀
+</div>
+
+
+<div class="container">
+
+    <h1>📚 Study Tracker</h1>
+
+
+    <!-- DAILY GOAL -->
+
+    <div class="card goal-card">
+
+        <p class="label">
+            TODAY'S MISSION
+        </p>
+
+        <h2>What is your goal today?</h2>
+
+        <div class="goal-input-row">
+
+            <input
+                type="number"
+                id="goalInput"
+                placeholder="Example: 5"
+                min="0.1"
+                step="0.5"
+            >
+
+            <span class="hours-text">
+                hours
+            </span>
+
+            <button id="setGoalBtn">
+                Set Goal
+            </button>
+
+        </div>
+
+
+        <div
+            id="goalDashboard"
+            class="goal-dashboard hidden"
+        >
+
+            <div class="goal-numbers">
+
+                <div>
+                    <strong id="studiedAmount">
+                        0h
+                    </strong>
+
+                    <span>Studied</span>
+                </div>
+
+
+                <div>
+                    <strong id="goalAmount">
+                        0h
+                    </strong>
+
+                    <span>Goal</span>
+                </div>
+
+
+                <div>
+                    <strong id="remainingAmount">
+                        0h
+                    </strong>
+
+                    <span>Left</span>
+                </div>
+
+            </div>
+
+
+            <div class="progress-container">
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+            </div>
+
+
+            <p id="progressPercent">
+                0% complete
+            </p>
+
+
+            <button
+                id="changeGoalBtn"
+                class="change-goal"
+            >
+                Change Goal
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TIMER -->
+
+    <div class="card timer-card">
+
+        <p class="label">
+            TODAY
+        </p>
+
+        <div id="timer">
+            00:00:00
+        </div>
+
+
+        <div class="buttons">
+
+            <button id="startBtn">
+                Start
+            </button>
+
+            <button
+                id="stopBtn"
+                disabled
+            >
+                Stop
+            </button>
+
+        </div>
+
+
+        <p id="status">
+            Not studying
+        </p>
+
+    </div>
+
+
+
+    <!-- MOTIVATION -->
+
+    <div class="motivation-card">
+
+        <div class="motivation-emoji">
+            🧠
+        </div>
+
+        <p id="motivation">
+            Set a goal. Then pretend your exam is tomorrow.
+        </p>
+
+    </div>
+
+
+
+    <!-- TODAY'S SESSIONS -->
+
+    <div class="card">
+
+        <h2>Today's Sessions</h2>
+
+        <p class="section-description">
+            Your individual study sessions for today.
+        </p>
+
+        <div id="sessionList">
+
+            <p class="empty">
+                No sessions yet.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HISTORY -->
+
+    <div class="card">
+
+        <h2>History</h2>
+
+        <p class="section-description">
+            Click a day to see when you studied.
+        </p>
+
+        <div id="history"></div>
+
+    </div>
+
+</div>
+
+
+<!-- EDIT SESSION MODAL -->
+
+<div
+    id="editModal"
+    class="modal hidden"
+>
+
+    <div class="modal-content">
+
+        <h2>✏️ Edit Study Session</h2>
+
+        <p class="modal-description">
+            Correct the start or end time of this session.
+        </p>
+
+
+        <label for="editStart">
+            Start time
+        </label>
+
+        <input
+            type="datetime-local"
+            id="editStart"
+        >
+
+
+        <label for="editEnd">
+            End time
+        </label>
+
+        <input
+            type="datetime-local"
+            id="editEnd"
+        >
+
+
+        <p
+            id="editError"
+            class="edit-error"
+        ></p>
+
+
+        <div class="modal-buttons">
+
+            <button
+                id="cancelEditBtn"
+                class="cancel-button"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="saveEditBtn"
+                class="save-button"
+            >
+                Save Changes
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

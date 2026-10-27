@@ -1,0 +1,961 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #111827,
+            #1e1b4b
+        );
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   BACKGROUND MESSAGE
+========================================== */
+
+.background-message {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-8deg);
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 70px;
+
+    font-weight: 900;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    user-select: none;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 90%;
+
+    max-width: 750px;
+
+    margin: 50px auto;
+}
+
+
+h1 {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    font-size: 36px;
+}
+
+
+h2 {
+
+    margin-top: 5px;
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.card {
+
+    background:
+        rgba(
+            31,
+            41,
+            55,
+            0.92
+        );
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+}
+
+
+.label {
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+.section-description {
+
+    color: #9ca3af;
+
+    font-size: 14px;
+
+    margin-top: -5px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   GOAL
+========================================== */
+
+.goal-card {
+
+    text-align: center;
+}
+
+
+.goal-input-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+#goalInput {
+
+    width: 130px;
+
+    padding: 12px;
+
+    border: 2px solid #374151;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+
+#goalInput:focus {
+
+    border-color: #6366f1;
+}
+
+
+.hours-text {
+
+    color: #9ca3af;
+}
+
+
+#setGoalBtn {
+
+    background: #6366f1;
+
+    color: white;
+}
+
+
+/* ==========================================
+   GOAL DASHBOARD
+========================================== */
+
+.goal-dashboard {
+
+    margin-top: 25px;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+.goal-numbers {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.goal-numbers div {
+
+    background: #111827;
+
+    padding: 15px 5px;
+
+    border-radius: 10px;
+}
+
+
+.goal-numbers strong {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+
+.goal-numbers span {
+
+    color: #9ca3af;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.progress-container {
+
+    width: 100%;
+
+    height: 16px;
+
+    background: #111827;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #84cc16
+        );
+
+    border-radius: 20px;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+#progressPercent {
+
+    color: #9ca3af;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+
+.change-goal {
+
+    background: #374151;
+
+    color: white;
+
+    padding: 8px 15px;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+/* ==========================================
+   TIMER
+========================================== */
+
+.timer-card {
+
+    text-align: center;
+}
+
+
+#timer {
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    margin: 20px 0;
+
+    font-family: monospace;
+}
+
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+
+    border: none;
+
+    padding: 12px 30px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s,
+        opacity 0.2s;
+}
+
+
+button:hover:not(:disabled) {
+
+    opacity: 0.85;
+}
+
+
+button:active:not(:disabled) {
+
+    transform: scale(0.96);
+}
+
+
+button:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+}
+
+
+#startBtn {
+
+    background: #22c55e;
+
+    color: white;
+}
+
+
+#stopBtn {
+
+    background: #ef4444;
+
+    color: white;
+}
+
+
+#status {
+
+    color: #9ca3af;
+
+    margin-top: 15px;
+}
+
+
+/* ==========================================
+   MOTIVATION
+========================================== */
+
+.motivation-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.13
+        );
+
+    border:
+        1px solid
+        rgba(
+            99,
+            102,
+            241,
+            0.3
+        );
+
+    padding: 18px 22px;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.motivation-emoji {
+
+    font-size: 30px;
+}
+
+
+#motivation {
+
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #d1d5db;
+}
+
+
+/* ==========================================
+   SESSIONS
+========================================== */
+
+.session {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom:
+        1px solid #374151;
+}
+
+
+.session:last-child {
+
+    border-bottom: none;
+}
+
+
+.session-info {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.session-time {
+
+    flex: 1;
+}
+
+
+.session-duration {
+
+    font-family: monospace;
+
+    color: #d1d5db;
+}
+
+
+.session-actions {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+
+/* ==========================================
+   EDIT / DELETE BUTTONS
+========================================== */
+
+.edit-session {
+
+    background: #6366f1;
+
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+}
+
+
+.delete-session {
+
+    background: #ef4444;
+
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.history-day {
+
+    border-bottom:
+        1px solid #374151;
+
+    padding: 15px 0;
+}
+
+
+.history-day:last-child {
+
+    border-bottom: none;
+}
+
+
+.history-summary {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    padding: 5px 0;
+}
+
+
+.history-summary:hover {
+
+    opacity: 0.8;
+}
+
+
+.history-date {
+
+    font-weight: 600;
+}
+
+
+.history-total {
+
+    font-family: monospace;
+
+    font-weight: bold;
+
+    color: #a5b4fc;
+}
+
+
+.history-sessions {
+
+    margin-top: 12px;
+
+    padding-left: 15px;
+
+    border-left:
+        2px solid #374151;
+}
+
+
+.history-session {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 0;
+}
+
+
+.history-session-time {
+
+    color: #d1d5db;
+}
+
+
+.history-session-duration {
+
+    color: #9ca3af;
+
+    font-family: monospace;
+
+    font-size: 13px;
+}
+
+
+.history-session-actions {
+
+    display: flex;
+
+    gap: 5px;
+}
+
+
+.history-session-actions button {
+
+    padding: 5px 9px;
+
+    font-size: 12px;
+}
+
+
+.empty {
+
+    color: #9ca3af;
+}
+
+
+/* ==========================================
+   EDIT MODAL
+========================================== */
+
+.modal {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.72
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+    padding: 20px;
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 460px;
+
+    background: #1f2937;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.5
+        );
+}
+
+
+.modal-description {
+
+    color: #9ca3af;
+
+    margin-bottom: 25px;
+}
+
+
+.modal-content label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    color: #d1d5db;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.modal-content input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: #111827;
+
+    border:
+        2px solid #374151;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.modal-content input:focus {
+
+    border-color: #6366f1;
+}
+
+
+.edit-error {
+
+    color: #f87171;
+
+    min-height: 20px;
+
+    font-size: 14px;
+
+    margin-top: 12px;
+}
+
+
+.modal-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.cancel-button {
+
+    background: #374151;
+
+    color: white;
+}
+
+
+.save-button {
+
+    background: #22c55e;
+
+    color: white;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 550px) {
+
+    .container {
+
+        width: 94%;
+
+        margin: 25px auto;
+    }
+
+
+    h1 {
+
+        font-size: 29px;
+    }
+
+
+    #timer {
+
+        font-size: 42px;
+    }
+
+
+    .card {
+
+        padding: 20px;
+    }
+
+
+    .goal-input-row {
+
+        flex-wrap: wrap;
+    }
+
+
+    .goal-numbers strong {
+
+        font-size: 18px;
+    }
+
+
+    .session {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .session-info {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+
+    .session-actions {
+
+        width: 100%;
+    }
+
+
+    .session-actions button {
+
+        flex: 1;
+    }
+
+
+    .history-session {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .history-session-actions {
+
+        width: 100%;
+    }
+
+
+    .background-message {
+
+        font-size: 45px;
+    }
+
+
+    .modal-buttons {
+
+        flex-direction: column;
+    }
+
+
+    .modal-buttons button {
+
+        width: 100%;
+    }
+}
